@@ -1,9 +1,3 @@
-# mlflow_sklearn_proba
-MLFlow SKLearn flavor that uses `predict_proba` instead of `predict` for pyfunc.predict while retaining the ability to load the sklearn flavor
-
-## Usage
-
-```python
 import mlflow
 from mlflow_sklearn_proba import save_model
 from sklearn.datasets import load_iris
@@ -22,4 +16,3 @@ print(model_proba_py.predict(X)) # Note: probabilities for each category instead
 model_proba_sk = mlflow.sklearn.load_model("model_proba")
 print(model_proba_sk.predict(X)) # pyfunc's old behavior
 print(model_proba_sk.predict_proba(X)) # pyfunc's new behavior with mlflow_sklearn_proba
-```
