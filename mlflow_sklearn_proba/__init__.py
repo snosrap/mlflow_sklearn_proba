@@ -9,7 +9,6 @@ class PythonModelProba(mlflow.pyfunc.PythonModel):
   def load_context(self, context):
     with open(context.artifacts["pickle_path"], "rb") as f:
       self.sk_model = cloudpickle.load(f)
-    pass
   def predict(self, context, model_input):
     return self.sk_model.predict_proba(model_input)
 
